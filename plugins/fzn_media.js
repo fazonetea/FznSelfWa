@@ -57,4 +57,4 @@
 			}
 			
 		})();		
-//Sticker BY Fazone
+//Media BY Fazone

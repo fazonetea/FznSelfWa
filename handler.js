@@ -53,7 +53,6 @@ module.exports = fzn = async (fzn, msg) => {
         msg = msg.messages.all()[0]
 		if (!msg.message) return
 		if (msg.key && msg.key.remoteJid == 'status@broadcast') return
-		global.blocked
         msg.message = (Object.keys(msg.message)[0] === 'ephemeralMessage') ? msg.message.ephemeralMessage.message : msg.message
         const content = JSON.stringify(msg.message)
 		const from = msg.key.remoteJid
@@ -234,6 +233,11 @@ var menu = `◪ *INFO*
 *| ◪ ${prefix}brilliant [ reply foto ]*
 *| ◪ ${prefix}beautiful [ reply foto ]*
 *| ◪ ${prefix}mintframe [ reply foto ]*
+
+*❏ Other*
+*| ◪ ${prefix}sfile [ query ]*
+*| ◪ ${prefix}sfiledl [ link ]*
+*| ◪ ${prefix}ssweb [ link ]*
 `
 Kirim.FakeStatus(from, menu, fakenya)
  break

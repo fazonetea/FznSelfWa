@@ -32,7 +32,7 @@ CFonts.say(`SELF WA BOT BY FAZONE\nJust For Fun :v`, {
 })
 
 require('./handler.js')
-nocache('./handler.js', module => console.log(`${module} is now updated!`))
+nocache('./handler.js', module => console.log(`${module} Telah Di Perbarui Silahkan Restart Botnya!!!`))
 
 const start = async (sesi) => {
 	const fzn = new WAConnection()

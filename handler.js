@@ -39,6 +39,11 @@ const color = (text, color) => {
 selfna = true
 fakenya = 'FAZONE'
 apikey = 'GaluhTbit'
+var AFK = {
+    isAfk: false,
+    reason: false,
+    lastseen: 0
+};
 //
 
 	
@@ -104,7 +109,19 @@ module.exports = fzn = async (fzn, msg) => {
 		return `${pad(hours)} Jam ${pad(minutes)} Menit ${pad(seconds)} Detik`
 		}
 		const waktos = process.uptime()
-		const cts = waktune(waktos)  
+		const cts = waktune(waktos) 
+		function secondsToHms(d) {
+			d = Number(d);
+			var h = Math.floor(d / 3600);
+			var m = Math.floor(d % 3600 / 60);
+			var s = Math.floor(d % 3600 % 60);
+
+			var hDisplay = h > 0 ? h + (h == 1 ? " " + " Jam" + ", " : " " + " Jam" + ", ") : "";
+			var mDisplay = m > 0 ? m + (m == 1 ? " " + " Menit" + ", " : " " + " Menit" + ", ") : "";
+			var sDisplay = s > 0 ? s + (s == 1 ? " " + " Detik" : " " + " Detik") : "";
+			return hDisplay + mDisplay + sDisplay; 
+		}		
+		
 		const reply = async (teknya) => {
 			return fazone.sendMessage(teknya, MessageType.text, {quoted: fazone.data})
 		}	 
@@ -120,6 +137,48 @@ module.exports = fzn = async (fzn, msg) => {
 			}
 		}
 		
+		if(!msg.key.fromMe){						
+			if (AFK.isAfk && ((!from.includes('-')) || (from.includes('-') && 
+				(( from !== false && fazone.mention.length !== 0 ) || fazone.fazone.reply_message !== false)))) {
+				if (from.includes('-') && (fazone.mention !== false && fazone.mention.length !== 0)) {
+					fazone.mention.map(async (jidna) => {
+						//console.log(jidna)
+						if (fzn.user.jid.split('@')[0] === jidna.split('@')[0]) {
+							//pushnamenya = fzn.contacts[nameditag] != undefined ? fzn.contacts[nameditag].vname || fzn.contacts[nameditag].notify : undefined
+							fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
+							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
+							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
+						}
+					})
+				} else if (from.includes('-') && fazone.reply_message !== false) {
+					if (fazone.reply_message.jid.split('@')[0] === fzn.user.jid.split('@')[0]) {
+						//pushnamenya = fzn.contacts[namedireply] != undefined ? fzn.contacts[namedireply].vname || fzn.contacts[namedireply].notify : undefined
+						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
+							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
+							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
+					}
+				} else if(detstick.split('@')[0] === fzn.user.jid.split('@')[0]) {
+						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
+							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
+							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
+				} else if(!isGroup){
+						//pushnamenya = fzn.contacts[from] != undefined ? fzn.contacts[from].vname || fzn.contacts[from].notify : undefined
+						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak ${pushnamenya(sender)}, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
+							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
+							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
+				}
+			}
+		}		
+		
+		if (msg.key.fromMe) {
+			if (AFK.isAfk && !fazone.id.startsWith('3EB0')) {
+				AFK.lastseen = 0;
+				AFK.reason = false;
+				AFK.isAfk = false;
+				Kirim.FakeStatus(from,'*Saya Tidak Lagi Offline!*',fakenya);
+			}
+		}
+		
 		if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
      	if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 		if(!msg.key.fromMe && selfna) return
@@ -129,54 +188,54 @@ module.exports = fzn = async (fzn, msg) => {
             }
         });
 		switch (command) {
-			case 'menu':
-			case 'help':
-				const mode = selfna ? 'SELF': 'PUBLIC'
-				var menu = `◪ *INFO*
-				  ❏ Prefix: 「  MULTI  」
-				  ❏ Nama : ${pushname}
-				  ❏ Mode : ${mode}
-				  ❏ Runtime : ${cts}
-				  
-					*❏ Owner*
-				*| ◪ ${prefix}setfake [ query ]*
-				*| ◪ ${prefix}upswteks [ query ]*
-				*| ◪ ${prefix}upswimage [ query ]* 
-				*| ◪ ${prefix}upswvideo [ query ]* 
-				*| ◪ ${prefix}runtime* 
-				*| ◪ ${prefix}ping* 
-				*| ◪ ${prefix}self* 
-				*| ◪ ${prefix}public* 
-					
-					*❏ Sticker*
-				*| ◪ ${prefix}sticker [ reply ]*
-				*| ◪ ${prefix}snobg [ reply ]*
-				*| ◪ ${prefix}scircle [ reply ]* 
-				
-					*❏ Downloader*
-				*| ◪ ${prefix}play [ query ]*
-				*| ◪ ${prefix}ig [ link ]*
-				*| ◪ ${prefix}fb [ link ]*
-				
-					*❏ Group*
-				*| ◪ ${prefix}hidetag [ query ]*	
-					
-					*❏ Photo Effect*
-				*| ◪ ${prefix}circle [ reply foto ]*
-				*| ◪ ${prefix}amazingtypo [ reply foto ]*
-				*| ◪ ${prefix}3dblock [ reply foto ]*
-				*| ◪ ${prefix}flameup [ reply foto ]*
-				*| ◪ ${prefix}rosepetals [ reply foto ]*
-				*| ◪ ${prefix}lovelyframe [ reply foto ]*
-				*| ◪ ${prefix}valentine [ reply foto ]*
-				*| ◪ ${prefix}pipframe [ reply foto ]*
-				*| ◪ ${prefix}violetframe [ reply foto ]*
-				*| ◪ ${prefix}brilliant [ reply foto ]*
-				*| ◪ ${prefix}beautiful [ reply foto ]*
-				*| ◪ ${prefix}mintframe [ reply foto ]*	
-				  `
-				Kirim.FakeStatus(from, menu, fakenya)
-           	break
+case 'menu':
+case 'help':
+const mode = selfna ? 'SELF': 'PUBLIC'
+var menu = `◪ *INFO*
+❏ Prefix: 「MULTI」
+❏ Nama : ${pushname}
+❏ Mode : ${mode}
+❏ Runtime : ${cts}
+
+*❏ Owner*
+*| ◪ ${prefix}setfake [ query ]*
+*| ◪ ${prefix}upswteks [ query ]*
+*| ◪ ${prefix}upswimage [ query ]* 
+*| ◪ ${prefix}upswvideo [ query ]* 
+*| ◪ ${prefix}runtime* 
+*| ◪ ${prefix}ping* 
+*| ◪ ${prefix}self* 
+*| ◪ ${prefix}public* 
+
+*❏ Sticker*
+*| ◪ ${prefix}sticker [ reply ]*
+*| ◪ ${prefix}snobg [ reply ]*
+*| ◪ ${prefix}scircle [ reply ]* 
+
+*❏ Downloader*
+*| ◪ ${prefix}play [ query ]*
+*| ◪ ${prefix}ig [ link ]*
+*| ◪ ${prefix}fb [ link ]*
+
+*❏ Group*
+*| ◪ ${prefix}hidetag [ query ]*
+
+*❏ Photo Effect*
+*| ◪ ${prefix}circle [ reply foto ]*
+*| ◪ ${prefix}amazingtypo [ reply foto ]*
+*| ◪ ${prefix}3dblock [ reply foto ]*
+*| ◪ ${prefix}flameup [ reply foto ]*
+*| ◪ ${prefix}rosepetals [ reply foto ]*
+*| ◪ ${prefix}lovelyframe [ reply foto ]*
+*| ◪ ${prefix}valentine [ reply foto ]*
+*| ◪ ${prefix}pipframe [ reply foto ]*
+*| ◪ ${prefix}violetframe [ reply foto ]*
+*| ◪ ${prefix}brilliant [ reply foto ]*
+*| ◪ ${prefix}beautiful [ reply foto ]*
+*| ◪ ${prefix}mintframe [ reply foto ]*
+`
+Kirim.FakeStatus(from, menu, fakenya)
+ break
 			case 'setfake':
 				if(!q) return reply('Masukan Teksnya kak :v')
 				fakenya = q
@@ -198,6 +257,14 @@ module.exports = fzn = async (fzn, msg) => {
 				//console.log(child)
 				Kirim.FakeGroup(from, child, fakenya)
             break  
+			case 'afk':
+				if (!AFK.isAfk) {
+				AFK.lastseen = Math.round((new Date()).getTime() / 1000);
+					if (args[0] !== '') { AFK.reason = args.join(' '); }
+					Kirim.FakeStatus(from,'*Saya Sekarang Offline!*' + (AFK.reason !== false ? ('\n*' + 'Alasan*' +': ' + AFK.reason) : ''),fakenya);
+					AFK.isAfk = true;
+				}
+            break
 			case 'self':
 			if (!msg.key.fromMe) return
 			if(selfna) return Kirim.FakeStatus(from, 'This Is Self!!!', fakenya) 
@@ -229,9 +296,9 @@ module.exports = fzn = async (fzn, msg) => {
 			break		
 			case 'upswteks':
 				if (!msg.key.fromMe) return reply(warn.errorne.onSelf)
-				if (!q) return fakestatus('Isi teksnya!')
+				if (!q) return Kirim.FakeStatus(from, 'Isi teksnya!', fakenya)
 				fzn.sendMessage('status@broadcast', `${q}`, extendedText)
-				fakegroup(`Sukses Up Story Teks : ${q}`)
+				Kirim.FakeStatus(from, `Sukses Up Story Teks : ${q}`, fakenya)
 			break
 			case 'upswimage':
 				if (!msg.key.fromMe) return reply(warn.errorne.onSelf)

@@ -204,6 +204,7 @@ var menu = `◪ *INFO*
 *| ◪ ${prefix}upswvideo [ query ]* 
 *| ◪ ${prefix}runtime* 
 *| ◪ ${prefix}ping* 
+*| ◪ ${prefix}afk* 
 *| ◪ ${prefix}self* 
 *| ◪ ${prefix}public* 
 

@@ -9,7 +9,6 @@
 ```
 
 ## Cara Install Di Windows
-* [`Download ffmpeg`](https://ffmpeg.org/download.html#build-windows) and set path
 * [`Download Node JS`](https://nodejs.org/en/download/)
 ```cmd
 > git clone https://github.com/fazonetea/FznSelfWa.git

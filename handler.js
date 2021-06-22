@@ -138,7 +138,7 @@ module.exports = fzn = async (fzn, msg) => {
 		
 		if(!msg.key.fromMe){						
 			if (AFK.isAfk && ((!from.includes('-')) || (from.includes('-') && 
-				(( from !== false && fazone.mention.length !== 0 ) || fazone.fazone.reply_message !== false)))) {
+				(( from !== false && fazone.mention.length !== 0 ) || fazone.reply_message !== false)))) {
 				if (from.includes('-') && (fazone.mention !== false && fazone.mention.length !== 0)) {
 					fazone.mention.map(async (jidna) => {
 						//console.log(jidna)

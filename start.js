@@ -52,9 +52,9 @@ const start = async (sesi) => {
     })
     await fzn.connect({timeoutMs: 30*1000})
         fs.writeFileSync(`./${sesi}.json`, JSON.stringify(fzn.base64EncodedAuthInfo(), null, '\t'))
-		require('./lib/fzn');
 
     fzn.on('chat-update', async (message) => {
+	require('./lib/fzn');    
         require('./handler.js')(fzn, message)
     })
 }

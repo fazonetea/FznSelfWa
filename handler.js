@@ -186,6 +186,23 @@ module.exports = fzn = async (fzn, msg) => {
                 eval(fs.readFileSync('./plugins/' + plugin,  'utf8'));
             }
         });
+	var sendgas = ''
+		fs.readdirSync('./plugins').forEach(plugin => {
+            if(path.extname(plugin).toLowerCase() == '.js') {
+				if(body.toLowerCase() === prefix + 'listcmd') {
+				var gayane = ''
+				fs.readFileSync('./plugins/' + plugin,  'utf8').split(/case +/).forEach( item => {
+				let login = prefix + item.split(':')[0]
+				gayane += login.replace('(async () => {','').replace('switch(command){', '').replace(/\r\n\t\t\t/gi,'').replace(/\r\n\t\t\t\t/gi,'').replace(/\n/gi,'').replace(/\t/gi,'').replace(/''/gi,'\n').replace(/'/gi,'') + '\n'
+				});
+				sendgas += gayane.replace(prefix + 'switch (command) {',prefix)
+				}
+            }
+        });
+		
+		if(body.toLowerCase() === prefix + 'listcmd') {
+			fzn.sendMessage(from, sendgas, text, {quoted: msg})
+		}	
 		
 	} catch (e) {
     e = String(e)
@@ -195,3 +212,5 @@ module.exports = fzn = async (fzn, msg) => {
 	// console.log(e)
 	}
 }
+
+///Jika Edit Disini Maka Harus Restart Bot Ulang Secara Manual...

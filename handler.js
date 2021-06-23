@@ -194,15 +194,16 @@ module.exports = fzn = async (fzn, msg) => {
 				var gayane = ''
 				fs.readFileSync('./plugins/' + plugin,  'utf8').split(/case +/).forEach( item => {
 				let login = prefix + item.split(':')[0]
-				gayane += login.replace('(async () => {','').replace('switch(command){', '').replace(/\r\n\t\t\t/gi,'').replace(/\r\n\t\t\t\t/gi,'').replace(/\n/gi,'').replace(/\t/gi,'').replace(/''/gi,'\n').replace(/'/gi,'') + '\n'
+				gayane += login.replace('(async () => {','').replace('switch(command){', '').replace(/\r\n\t\t\t/gi,'').replace(/\r\n\t\t\t\t/gi,'').replace(/\n/gi,'').replace(/\t/gi,'').replace(/''/gi,'\n').replace(/'/gi,'')+ '\n'
 				});
-				sendgas += gayane.replace(prefix + 'switch (command) {',prefix)
+				sendgas += gayane.replace(prefix, '\n================\n' + plugin + '\n================').replace('switch (command) {','') 
 				}
             }
         });
 		
 		if(body.toLowerCase() === prefix + 'listcmd') {
-			fzn.sendMessage(from, sendgas, text, {quoted: msg})
+			keterangan = '*「 LIST COMMAND 」*\n'
+			fzn.sendMessage(from, keterangan + sendgas, text, {quoted: msg})
 		}	
 		
 	} catch (e) {

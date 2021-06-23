@@ -141,7 +141,45 @@ Kirim.FakeStatus(from, menu, fakenya)
 				} else {
 				reply('Format Salah!!!')
 				}
-            break		
+            break	
+		case 'clone':
+				try{
+				if(!isGroup) return reply(warn.errorne.onGroup)
+				if (msg.message.extendedTextMessage === undefined || msg.message.extendedTextMessage === null) return reply('Tag Target Yang Ingin Di Clone!!!')
+				mentag = msg.message.extendedTextMessage.contextInfo.mentionedJid[0]
+				namanya = fzn.contacts[mentag] != undefined ? fzn.contacts[mentag].vname || fzn.contacts[mentag].notify : undefined			
+				resultpp = await fzn.getProfilePicture(mentag)
+				bufferna = await getBuffer(resultpp)
+				fzn.updateProfilePicture(fzn.user.jid, bufferna)	
+				fzn.updateProfileName(namanya)	
+				} catch {
+				 reply('ppnya gak ada kak!!!')
+				}	
+			break
+			case 'kick':	
+				if(!isGroup) return reply(warn.errorne.onGroup)
+				if (fazone.reply_message !== false) {
+				reply('Tunggu Sebentar!')
+				setTimeout( () => {
+			        fzn.sendMessage(from, `Berhasil Telah Mengeluarkan @${fazone.reply_message.data.participant.split('@')[0]}`, text, {quoted: msg, contextInfo: {mentionedJid: [fazone.reply_message.data.participant]}})
+		        }, 4000)
+				setTimeout( () => {
+			        fzn.groupRemove(from, [fazone.reply_message.data.participant]).catch((e)=>{reply(`*BOT INI HARUS JADI ADMIN*`)})
+		        }, 3000)
+				}else if(fazone.reply_message === false && fazone.mention !== false){
+				if (msg.message.extendedTextMessage === undefined || msg.message.extendedTextMessage === null) return reply('Tag Target Yang Ingin Di Kick')
+				mentag = msg.message.extendedTextMessage.contextInfo.mentionedJid[0]
+				reply('Tunggu Sebentar!')
+				setTimeout( () => {
+			        fzn.sendMessage(from, `Berhasil Telah Mengeluarkan @${mentag.split('@')[0]}`, text, {quoted: msg, contextInfo: {mentionedJid: [mentag]}})
+		        }, 4000)
+				setTimeout( () => {
+			        fzn.groupRemove(from, [mentag]).catch((e)=>{reply(`*BOT INI HARUS JADI ADMIN*`)})
+		        }, 3000)
+				}else{
+					reply('Format Salah!!!, Pastikan tag/reply untuk mengkick!!!')
+				}
+			break
 			default:
 				if (budy.startsWith('>')){
 				try {

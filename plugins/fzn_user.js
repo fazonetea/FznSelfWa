@@ -70,7 +70,7 @@ Kirim.FakeStatus(from, menu, fakenya)
 \`\`\` - [ ${fzn.user.phone.device_manufacturer} ] HANDPHONE\`\`\`
 \`\`\` - [ ${fzn.user.phone.wa_version} ] WA Version\`\`\`
 \`\`\` - [ Baileys ] Server\`\`\`
-\`\`\` - [ ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / 4096 ] RAM\`\`\`
+\`\`\` - [ ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB ] RAM\`\`\`
 \`\`\`Speed : ${latensi.toFixed(4)} Second\`\`\``
 				//console.log(child)
 				Kirim.FakeGroup(from, child, fakenya)

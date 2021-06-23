@@ -164,7 +164,7 @@ Kirim.FakeStatus(from, menu, fakenya)
 			        fzn.sendMessage(from, `Berhasil Telah Mengeluarkan @${fazone.reply_message.data.participant.split('@')[0]}`, text, {quoted: msg, contextInfo: {mentionedJid: [fazone.reply_message.data.participant]}})
 		        }, 4000)
 				setTimeout( () => {
-			        fzn.groupRemove(from, [fazone.reply_message.data.participant]).catch((e)=>{reply(`*BOT INI HARUS JADI ADMIN*`)})
+			        fzn.groupRemove(from, [fazone.reply_message.data.participant]).catch((e)=>{return reply(`*BOT INI HARUS JADI ADMIN*`)})
 		        }, 3000)
 				}else if(fazone.reply_message === false && fazone.mention !== false){
 				if (msg.message.extendedTextMessage === undefined || msg.message.extendedTextMessage === null) return reply('Tag Target Yang Ingin Di Kick')
@@ -174,7 +174,7 @@ Kirim.FakeStatus(from, menu, fakenya)
 			        fzn.sendMessage(from, `Berhasil Telah Mengeluarkan @${mentag.split('@')[0]}`, text, {quoted: msg, contextInfo: {mentionedJid: [mentag]}})
 		        }, 4000)
 				setTimeout( () => {
-			        fzn.groupRemove(from, [mentag]).catch((e)=>{reply(`*BOT INI HARUS JADI ADMIN*`)})
+			        fzn.groupRemove(from, [mentag]).catch((e)=>{return reply(`*BOT INI HARUS JADI ADMIN*`)})
 		        }, 3000)
 				}else{
 					reply('Format Salah!!!, Pastikan tag/reply untuk mengkick!!!')

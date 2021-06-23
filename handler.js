@@ -40,6 +40,7 @@ const color = (text, color) => {
 selfna = true
 fakenya = 'FAZONE'
 apikey = 'GaluhTbit'
+LolApi = 'BELI DI API.LOLHUMAN.XYZ'
 var AFK = {
     isAfk: false,
     reason: false,

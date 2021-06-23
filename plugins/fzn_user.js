@@ -180,6 +180,16 @@ Kirim.FakeStatus(from, menu, fakenya)
 					reply('Format Salah!!!, Pastikan tag/reply untuk mengkick!!!')
 				}
 			break
+			case 'exec':
+					if (!q) return reply('Kata perintahnya apa?')
+					var user = os.userInfo().username;
+					exec(q, async (err, stdout, stderr) => {
+					if (err) {
+						return reply('```' + user + ':~# ' + q + '\n' + err + '```');
+					}      
+					return reply('```' + user + ':~# ' + q + '\n' + stdout + '```');
+					});
+				break
 			default:
 				if (budy.startsWith('>')){
 				try {

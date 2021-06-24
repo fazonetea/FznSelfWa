@@ -12,6 +12,8 @@
     "cfonts": "^2.9.3",
     "cheerio": "^1.0.0-rc.10",
     "fast-http-request": "0.0.6",
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "fluent-ffmpeg": "^2.1.2",
     "form-data": "^4.0.0",
     "fs-extra": "^10.0.0",
     "got": "^11.8.2",

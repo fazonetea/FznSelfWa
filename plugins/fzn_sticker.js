@@ -293,6 +293,28 @@ case 'del':
                     }
                     break
 			}
+		case 'rain': //By Fazone
+                    if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
+                        const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
+                        file_fzn = await fzn.downloadAndSaveMediaMessage(encmedia);
+                        request({
+							url: `https://fazone-api.herokuapp.com/api/rain?apikey=${apikey}`,
+							method: 'POST',
+							formData: {
+								"img": fs.createReadStream(file_fzn),
+							},
+                            encoding: "binary"
+                        }, async function(error, response, body) {
+                            gas = new Buffer.from(body, 'binary')
+							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
+							mantap = await convertSticker(bas64, 'Adul Alhy', 'Created By')
+							imageBuffer = new Buffer.from(mantap, 'base64');
+							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+                        });
+                    } else {
+                        reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
+                    }
+                    break
 			
 		})();		
 //Sticker BY Fazone

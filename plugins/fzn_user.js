@@ -24,6 +24,15 @@ var menu = `◪ *INFO*
 *| ◪ ${prefix}sticker [ reply ]*
 *| ◪ ${prefix}snobg [ reply ]*
 *| ◪ ${prefix}scircle [ reply ]* 
+*| ◪ ${prefix}sfirewm [ reply ]* 
+*| ◪ ${prefix}trigger [ reply ]* 
+*| ◪ ${prefix}trigger2 [ reply ]* 
+*| ◪ ${prefix}nobg [ reply ]* 
+*| ◪ ${prefix}removebg [ reply ]* 
+*| ◪ ${prefix}wanted [ reply ]* 
+*| ◪ ${prefix}wanted2 [ reply ]* 
+*| ◪ ${prefix}wasted [ reply ]* 
+*| ◪ ${prefix}rain [ reply ]* 
 
 *❏ Downloader*
 *| ◪ ${prefix}play [ query ]*
@@ -46,6 +55,64 @@ var menu = `◪ *INFO*
 *| ◪ ${prefix}brilliant [ reply foto ]*
 *| ◪ ${prefix}beautiful [ reply foto ]*
 *| ◪ ${prefix}mintframe [ reply foto ]*
+
+*❏ Photo Effect*
+*| ◪ ${prefix}cup [ query ]*
+*| ◪ ${prefix}cup1 [ query ]*
+*| ◪ ${prefix}romance [ query ]*
+*| ◪ ${prefix}smoke [ query ]*
+*| ◪ ${prefix}burnpaper [ query ]*
+*| ◪ ${prefix}lovemessage [ query ]*
+*| ◪ ${prefix}undergrass [ query ]*
+*| ◪ ${prefix}love [ query ]*
+*| ◪ ${prefix}coffe [ query ]*
+*| ◪ ${prefix}woodheart [ query ]*
+*| ◪ ${prefix}woodenboard [ query ]*
+*| ◪ ${prefix}summer3d [ query ]*
+*| ◪ ${prefix}wolfmetal [ query ]*
+*| ◪ ${prefix}nature3d [ query ]*
+*| ◪ ${prefix}underwater [ query ]*
+*| ◪ ${prefix}golderrose [ query ]*
+*| ◪ ${prefix}summernature [ query ]*
+*| ◪ ${prefix}letterleaves [ query ]*
+*| ◪ ${prefix}glowingneon [ query ]*
+*| ◪ ${prefix}fallleaves [ query ]*
+*| ◪ ${prefix}flamming [ query ]*
+*| ◪ ${prefix}harrypotter [ query ]*
+*| ◪ ${prefix}tahta [ query ]*
+*| ◪ ${prefix}carvedwood [ query ]*
+*| ◪ ${prefix}arcade8bit [ query ] [ query ]*
+*| ◪ ${prefix}battlefield4 [ query ] [ query ]*
+*| ◪ ${prefix}pubg [ query ] [ query ]*
+*| ◪ ${prefix}wetglass [ query ]*
+*| ◪ ${prefix}watercolor [ query ]*
+*| ◪ ${prefix}luxurygold [ query ]*
+*| ◪ ${prefix}galaxywallpaper [ query ]*
+*| ◪ ${prefix}lighttext [ query ]*
+*| ◪ ${prefix}beautifulflower [ query ]*
+*| ◪ ${prefix}puppycute [ query ]*
+*| ◪ ${prefix}royaltext [ query ]*
+*| ◪ ${prefix}heartshaped [ query ]*
+*| ◪ ${prefix}brithdaycake [ query ]*
+*| ◪ ${prefix}galaxystyle [ query ]*
+*| ◪ ${prefix}hologram3d [ query ]*
+*| ◪ ${prefix}greenneon [ query ]*
+*| ◪ ${prefix}glossychrome [ query ]*
+*| ◪ ${prefix}greenbush [ query ]*
+*| ◪ ${prefix}metallogo [ query ]*
+*| ◪ ${prefix}noeltext [ query ]*
+*| ◪ ${prefix}glittergold [ query ]*
+*| ◪ ${prefix}textcake [ query ]*
+*| ◪ ${prefix}starsnight [ query ]*
+*| ◪ ${prefix}wooden3d [ query ]*
+*| ◪ ${prefix}textbyname [ query ]*
+*| ◪ ${prefix}writegalacy [ query ]*
+*| ◪ ${prefix}galaxybat [ query ]*
+*| ◪ ${prefix}snow3d [ query ]*
+*| ◪ ${prefix}birthdayday [ query ]*
+*| ◪ ${prefix}goldplaybutton [ query ]*
+*| ◪ ${prefix}silverplaybutton [ query ]*
+*| ◪ ${prefix}freefire [ query ]*
 
 *❏ Other*
 *| ◪ ${prefix}sfile [ query ]*

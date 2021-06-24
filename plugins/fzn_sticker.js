@@ -70,11 +70,10 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                           fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantap = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantap, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
@@ -82,7 +81,7 @@
                     break
 
 		case 'rmbgg': //By Fazone
-case 'removebg':
+			case 'removebg':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -94,18 +93,17 @@ case 'removebg':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                           fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
                     }
                     break
-case 'nobg': //By Fazone
-case 'removebg2':
+				case 'nobg': //By Fazone
+				case 'removebg2':
                     if ((isMedia && !msg.message.videoMessage || isQuotedSticker)) {
                         const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -117,18 +115,17 @@ case 'removebg2':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                            fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim stiker dengan caption ${prefix + command} atau tag sticker yang sudah dikirim`)
                     }
                     break
-case 'trigger': //By Fazone
-case 'triggered':
+				case 'trigger': //By Fazone
+				case 'triggered':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -173,9 +170,8 @@ case 'triggered':
                         reply(`Kirim gambar/stiker dengan caption ${prefix + command} atau tag gambar/stiker yang sudah dikirim`)
                     }
                     break
-
-case 'trigger2': //By Fazone
-case 'triggered2':
+				case 'trigger2': //By Fazone
+				case 'triggered2':
                     if ((isMedia && !msg.message  .videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -187,18 +183,17 @@ case 'triggered2':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                           fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
                     }
                     break
-case 'wntd': //By Fazone
-case 'wanted':
+				case 'wntd': //By Fazone
+				case 'wanted':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -210,19 +205,18 @@ case 'wanted':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                            fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
                     }
                     break
 
-case 'wstd': //By Fazone
-case 'wasted':
+				case 'wstd': //By Fazone
+				case 'wasted':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -234,19 +228,18 @@ case 'wasted':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                            fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
                     }
                     break
 
-case 'delete': //By Fazone
-case 'del':
+				case 'delete': //By Fazone
+				case 'del':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -258,11 +251,10 @@ case 'del':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                            fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
@@ -282,18 +274,16 @@ case 'del':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                            fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantapp = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantapp, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
                     }
                     break
-			}
-		case 'rain': //By Fazone
+			case 'rain': //By Fazone
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fzn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -305,16 +295,14 @@ case 'del':
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
+                            fs.unlinkSync(file_fzn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
-							mantap = await convertSticker(bas64, 'Adul Alhy', 'Created By')
-							imageBuffer = new Buffer.from(mantap, 'base64');
-							fzn.sendMessage(from, imageBuffer, sticker, {quoted: msg})
+							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
                         });
                     } else {
                         reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim`)
                     }
-                    break
-			
-		})();		
-//Sticker BY Fazone
+                    break	
+			}	
+		})();	

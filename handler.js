@@ -29,6 +29,9 @@ const FormData = require('form-data')
 const { Readable, Duplex } = require('stream');
 const path = require('path')
 const os = require('os')
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffmpeg = require('fluent-ffmpeg');
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 
 // COLOR

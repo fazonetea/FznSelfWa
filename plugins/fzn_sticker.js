@@ -198,7 +198,7 @@ case 'triggered2':
                     }
                     break
 case 'wntd': //By Fazone
-case 'wantedv2':
+case 'wanted':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -222,7 +222,7 @@ case 'wantedv2':
                     break
 
 case 'wstd': //By Fazone
-case 'wastedv2':
+case 'wasted':
                     if ((isMedia && !msg.message.videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);
@@ -270,7 +270,7 @@ case 'del':
                     break
 
 
-                case 'wasted':
+                case 'wasted2':
                     if ((isMedia && !msg.message  .videoMessage || isQuotedImage)) {
                         const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                         file_fznn = await fzn.downloadAndSaveMediaMessage(encmedia);

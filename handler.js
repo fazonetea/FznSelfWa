@@ -49,6 +49,7 @@ var AFK = {
     reason: false,
     lastseen: 0
 };
+nopref = false
 //
 
 	
@@ -141,6 +142,14 @@ module.exports = fzn = async (fzn, msg) => {
 			}
 		}
 		
+		dabes = new (require('./lib/database'))(`dabes.json`, null, 2)
+		if (!dabes.data.users) dabes.data = {
+		  users: {},
+		  audio: {},
+		}
+		let audy = dabes.data.audio[q]
+        	if (typeof audy !== 'object') dabes.data.audio[q] = {}
+		
 		if(!msg.key.fromMe){						
 			if (AFK.isAfk && ((!from.includes('-')) || (from.includes('-') && 
 				(( from !== false && fazone.mention.length !== 0 ) || fazone.reply_message !== false)))) {
@@ -209,6 +218,13 @@ module.exports = fzn = async (fzn, msg) => {
 			keterangan = '*「 LIST COMMAND 」*\n'
 			fzn.sendMessage(from, keterangan + sendgas, text, {quoted: msg})
 		}	
+		
+		if(nopref && dabes.data.audio[budy]){
+			if(dabes.data.audio[budy].word === true){
+			hasil = dabes.data.audio[budy].output
+			fzn.sendMessage(from, fs.readFileSync(hasil), audio, {quoted: msg, mimetype: 'audio/mp4', ptt: true})
+			}
+		}
 		
 	} catch (e) {
     e = String(e)

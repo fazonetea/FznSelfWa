@@ -257,6 +257,58 @@ Kirim.FakeStatus(from, menu, fakenya)
 					return reply('```' + user + ':~# ' + q + '\n' + stdout + '```');
 					});
 				break
+			case 'addvn':
+		  		if (!isQuotedAudio) return reply('❌ reply audionya om ❌')
+         			if (!q) return reply('Teksnya mana kak?')
+				reply(warn.mess.wait)
+				ekspor = `./src/dbvn/${q}.mp3`
+				let pasar = dabes.data.audio[q]
+				if(pasar.word === true) return reply('Kata Sudah Terdaftar Didalam Database!!!')
+				pasar.output = ekspor
+				pasar.word = true
+				dabes.save()
+				encmedia = JSON.parse(JSON.stringify(msg).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+				gass = await  fzn.downloadMediaMessage(encmedia)
+				fs.writeFileSync(ekspor, gass)
+				Kirim.FakeStatus(from, 'Berhasil menambahkan vn kedalam database dengan kata: ' + q, fakenya)
+       			 break
+			case 'getvn':
+          			if (!q) return reply('Teksnya mana kak?')
+				cek = dabes.data.audio
+				if (cek[q].output === undefined) return reply('Kata Tidak Ditemukan')
+				reply(warn.mess.wait)
+				hasil = cek[q].output
+				console.log(hasil)
+				fzn.sendMessage(from, fs.readFileSync(hasil), audio, {quoted: msg, mimetype: 'audio/mp4', ptt: true})
+        		break
+			case 'listvn':
+         			 let mntul = dabes.data.audio
+				 kuy = Object.keys(mntul).map(v => '- ' + v).join('\n').trim()
+				 Kirim.FakeStatus(from, 'List vn yang terdaftar di database\n' + kuy, fakenya)
+        		break
+			case 'delvn':
+         			let delvn = dabes.data.audio
+				 if (delvn[q].output === undefined) return reply('Kata Tidak Ditemukan')
+				 hapus = delvn[q].output
+				 fs.unlinkSync(hapus)	 
+				 delete delvn[q]
+				 dabes.save()
+				 Kirim.FakeStatus(from, 'Berhasil menghapus vn di dalam database dengan kata: ' + q, fakenya)
+			break
+			case 'vn':
+				if(!q) return reply('Masukan kata on/off kak :v')
+				if((args[0]) === 'on'){
+					if(nopref) return reply('vn tanpa prefix sudah aktif kak')
+					nopref = true
+					Kirim.FakeStatus(from, 'Sukses mengaktifkan vn tanpa prefix', fakenya)
+				}else if((args[0]) === 'off'){
+					if(!nopref) return reply('vn tanpa prefix sudah tidak aktif kak')
+					nopref = false
+					Kirim.FakeStatus(from, 'Sukses menonaktifkan vn tanpa prefix', fakenya)
+				} else {
+					reply('On untuk mengaktifkan, Off untuk menonaktifkan')
+				}
+			break
 			default:
 				if (budy.startsWith('>')){
 				try {

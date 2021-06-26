@@ -1,28 +1,6 @@
 (async () => {
 			switch(command){
-				 case 'term': 
-case 'exec':
-if (!msg.key.fromMe) return reply('*Ente owner?_*')
-const cmyd = body.slice(6)
-var itsme = `0@s.whatsapp.net`
-var split = `*EXECUTOR SELF BOT*`
-const term = {
-contextInfo: {
-participant: itsme,
-quotedMessage: {
-extendedTextMessage: {
-text: split,
-}
-}
-}
-}
-exec(cmyd, (err, stdout) => {
-if (err) return fzn.sendMessage(from, ` ${err}`, text, { quoted: msg })
-if (stdout) {
-fzn.sendMessage(from, stdout, text, term)
-}
-})
-break
+				
 case 'botstat':
  case 'test':
                const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = fzn.user.phone

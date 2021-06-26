@@ -50,8 +50,7 @@ case 'botstat':
  Model					: ${device_model} 
  Group					: ${giid.length} 
  Chat					: ${totalchat.length - giid.length} 
- Total Chat 		: ${totalchat.length} 
- Runtime 			: ${kyun(run)} ${u}`
+ Total Chat 		: ${totalchat.length}`
                 reply(`${stat}`)
                 break	
 			}

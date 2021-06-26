@@ -6,6 +6,9 @@
 > git clone https://github.com/fazonetea/FznSelfWa.git
 > cd FznSelfWa
 > npm i
+> node start
+> isi nama session (terserah)
+> scan QR and Enjoyy
 ```
 
 ## Cara Install Di Windows
@@ -14,11 +17,15 @@
 > git clone https://github.com/fazonetea/FznSelfWa.git
 > cd FznSelfWa
 > npm i
+> node start
+> isi nama session (terserah)
+> scan QR and Enjoyy
 ```
 
 ## Jalankan Bot
 ```cmd
 > npm start
+> masukan nama session nya
 ```
 
 ## FITURNYA MASIH DIKIT :)

@@ -39,6 +39,11 @@ const color = (text, color) => {
     return !color ? chalk.green(text) : chalk.keyword(color)(text)
 }
 
+///Function batrai
+baterai = {
+	battery: "" || "Tidak terdeteksi",
+isCharge: "" || false}
+
 ///Function
 selfna = true
 fakenya = 'FAZONE'
@@ -225,6 +230,13 @@ module.exports = fzn = async (fzn, msg) => {
 			fzn.sendMessage(from, fs.readFileSync(hasil), audio, {quoted: msg, mimetype: 'audio/mp4', ptt: true})
 			}
 		}
+	fzn.on("CB:action,,battery", json => {
+	  const battery  = json[2][0][1].value
+	  const persenbat = parseInt(battery)
+	  baterai.battery = `${persenbat}%`
+	  baterai.isCharge = json[2][0][1].live
+	  baterai.powersave = json[2][0][1].powersave
+})
 		
 	} catch (e) {
     e = String(e)

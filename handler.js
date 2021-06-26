@@ -48,7 +48,7 @@ isCharge: "" || false}
 selfna = true
 fakenya = 'FAZONE'
 apikey = 'GaluhTbit'
-LolApi = 'BELI DI API.LOLHUMAN.XYZ'
+LolApi = 'genbotkey' //beli apikey di api.lolhuman.xyz//
 var AFK = {
     isAfk: false,
     reason: false,

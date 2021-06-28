@@ -23,6 +23,25 @@
           req = `https://fazone-api.herokuapp.com/api/ssweb?url=${q}&apikey=${apikey}`
           Kirim.FileDariUrl(from, req, msg, 'Ini kak :v')
         break
+	case 'tts':
+if (args.length < 1) return fzn.sendMessage(from, `Diperlukan kode bahasa!!, ketik ${prefix}bahasa`, text, {quoted: msg})
+				const gtts = require('./lib/gtts')(args[0])
+				if (args.length < 2) return fzn.sendMessage(from, 'Mana teks yang ma di jadiin suara? suara setan kah?', text, {quoted: msg})
+				dtt = body.slice(8)
+				ranm = getRandom('.mp3')
+				rano = getRandom('.ogg')
+				dtt.length > 300
+				? reply('Textnya Kepanjangan Om')
+				: gtts.save(ranm, dtt, function() {
+				exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+				fs.unlinkSync(ranm)
+				buffer = fs.readFileSync(rano)
+				if (err) return reply('Error Om')
+				fzn.sendMessage(from, buffer, audio, {duration: 9999999, quoted: msg, ptt:true})
+				fs.unlinkSync(rano)
+				})
+				})
+				break
 			}
 			
 		})();		

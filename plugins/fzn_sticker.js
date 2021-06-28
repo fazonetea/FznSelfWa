@@ -93,7 +93,7 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
-                           fs.unlinkSync(file_fzn)
+                           fs.unlinkSync(file_fznn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
 							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
@@ -115,7 +115,7 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
-                            fs.unlinkSync(file_fzn)
+                            fs.unlinkSync(file_fznn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
 							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
@@ -183,7 +183,7 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
-                           fs.unlinkSync(file_fzn)
+                           fs.unlinkSync(file_fznn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
 							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
@@ -205,7 +205,7 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
-                            fs.unlinkSync(file_fzn)
+                            fs.unlinkSync(file_fznn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
 							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
@@ -251,7 +251,7 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
-                            fs.unlinkSync(file_fzn)
+                            fs.unlinkSync(file_fznn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
 							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})
@@ -274,7 +274,7 @@
 							},
                             encoding: "binary"
                         }, async function(error, response, body) {
-                            fs.unlinkSync(file_fzn)
+                            fs.unlinkSync(file_fznn)
                             gas = new Buffer.from(body, 'binary')
 							bas64 = `data:image/jpeg;base64,${gas.toString('base64')}`
 							Kirim.GambarJadiStiker(from, bas64, msg, {author: 'Fazone', pack: 'SELF'})

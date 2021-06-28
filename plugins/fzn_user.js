@@ -56,7 +56,7 @@ var menu = `◪ *INFO*
 *| ◪ ${prefix}beautiful [ reply foto ]*
 *| ◪ ${prefix}mintframe [ reply foto ]*
 
-*❏ Photo Effect*
+*❏ Text Maker*
 *| ◪ ${prefix}cup [ query ]*
 *| ◪ ${prefix}cup1 [ query ]*
 *| ◪ ${prefix}romance [ query ]*
@@ -145,6 +145,7 @@ Kirim.FakeStatus(from, menu, fakenya)
 				Kirim.FakeGroup(from, child, fakenya)
             break  
 			case 'afk':
+                                if (!msg.key.fromMe) return
 				if (!AFK.isAfk) {
 				AFK.lastseen = Math.round((new Date()).getTime() / 1000);
 					if (args[0] !== '') { AFK.reason = args.join(' '); }

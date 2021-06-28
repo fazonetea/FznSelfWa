@@ -17,7 +17,7 @@ const
 	} = require("@adiwajshing/baileys")
 	
 const { pesane } = require('./lib/msgcustom')	
-const { getJson, getBuffer } = require("./lib/getdata");
+const { getJson, getBuffer,getRandom } = require("./lib/getdata");
 const moment = require("moment-timezone")
 const chalk = require('chalk')
 const fs = require('fs-extra')

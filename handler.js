@@ -181,7 +181,7 @@ module.exports = fzn = async (fzn, msg) => {
 							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
 				} else if(!isGroup){
 						//pushnamenya = fzn.contacts[from] != undefined ? fzn.contacts[from].vname || fzn.contacts[from].notify : undefined
-						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak ${pushnamenya(sender)}, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
+						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
 							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
 							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
 				}

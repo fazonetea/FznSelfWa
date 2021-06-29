@@ -236,7 +236,9 @@ module.exports = fzn = async (fzn, msg) => {
 	  baterai.battery = `${persenbat}%`
 	  baterai.isCharge = json[2][0][1].live
 	  baterai.powersave = json[2][0][1].powersave
-})
+        })
+
+        batrenya = baterai.battery ? 'C H A R G I N G' :
 		
 	} catch (e) {
     e = String(e)

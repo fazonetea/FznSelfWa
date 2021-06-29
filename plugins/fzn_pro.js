@@ -22,8 +22,8 @@ case 'botstat':
  Versi Whatsapp	: ${wa_version} 
  Ram						: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB 
  Merk Hp				: ${device_manufacturer} 
- Baterai				: ${baterai.battery} ${baterai.isCharge.replace('true','C H A R G I N G').replace('false','N O T  C H A R G I N G')}
- Powersave			: ${baterai.powersave.replace('true','O N').replace('false','O F F')}
+ Baterai				: ${baterai.battery} ${batrenya}
+ Powersave			: ${casnya}
  Versi Android	: ${os_version} 
  Model					: ${device_model} 
  Group					: ${giid.length} 

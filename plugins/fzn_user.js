@@ -136,8 +136,8 @@ Kirim.FakeStatus(from, menu, fakenya)
                 child =` \`\`\`Loaded Message\`\`\`             
 \`\`\` - [ ${fzn.user.phone.device_manufacturer} ] HANDPHONE\`\`\`
 \`\`\` - [ ${fzn.user.phone.wa_version} ] WA Version\`\`\`
-\`\`\` - [ Baterai ] ${baterai.battery} ${baterai.isCharge.replace('true','C H A R G I N G').replace('false','N O T  C H A R G I N G')}\`\`\`
-\`\`\` - [ Powersave ] ${baterai.powersave.replace('true','O N').replace('false','O F F')}\`\`\`
+\`\`\` - [ Baterai ]  ${baterai.battery} ${batrenya}\`\`\`
+\`\`\` - [ Powersave ] ${casnya}\`\`\`
 \`\`\` - [ Baileys ] Server\`\`\`
 \`\`\` - [ ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB ] RAM\`\`\`
 \`\`\`Speed : ${latensi.toFixed(4)} Second\`\`\``

@@ -78,6 +78,9 @@ module.exports = fzn = async (fzn, msg) => {
 		const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()		
 		const args = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix)
+		bodos = (type === 'conversation' && msg.message.conversation) ? msg.message.conversation : (type == 'imageMessage') && msg.message.imageMessage.caption ? msg.message.imageMessage.caption : (type == 'videoMessage') && msg.message.videoMessage.caption ? msg.message.videoMessage.caption : (type == 'extendedTextMessage') && msg.message.extendedTextMessage.text ? msg.message.extendedTextMessage.text : ''
+		const nopre = bodos.slice(0).trim().split(/ +/).shift().toLowerCase()
+		const argz = bodos.trim().split(/ +/).slice(1)
 		const q = args.join(' ')
 		const botNumber = fzn.user.jid
 		const isGroup = from.endsWith('@g.us')

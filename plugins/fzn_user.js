@@ -122,6 +122,7 @@ var menu = `◪ *INFO*
 Kirim.FakeStatus(from, menu, fakenya)
  break
 			case 'setfake':
+		if (!msg.key.fromMe) return reply(warn.errorne.onSelf)
 				if(!q) return reply('Masukan Teksnya kak :v')
 				fakenya = q
 				Kirim.FakeStatus(from, 'Sukses Mengganti Fake: '+ fakenya, fakenya) 
@@ -214,6 +215,7 @@ Kirim.FakeStatus(from, menu, fakenya)
             break	
 		case 'clone':
 				try{
+				if (!msg.key.fromMe) return reply(warn.errorne.onSelf)
 				if(!isGroup) return reply(warn.errorne.onGroup)
 				if (msg.message.extendedTextMessage === undefined || msg.message.extendedTextMessage === null) return reply('Tag Target Yang Ingin Di Clone!!!')
 				mentag = msg.message.extendedTextMessage.contextInfo.mentionedJid[0]
@@ -226,7 +228,9 @@ Kirim.FakeStatus(from, menu, fakenya)
 				 reply('ppnya gak ada kak!!!')
 				}	
 			break
-			case 'kick':	
+			case 'kick':
+				if (!isBotGroupAdmins) return reply('Jadikan Aku ADMIN')
+				if (!isGroupAdmins) return reply('ONLY ADMIN!!!')
 				if(!isGroup) return reply(warn.errorne.onGroup)
 				if (fazone.reply_message !== false) {
 				reply('Tunggu Sebentar!')

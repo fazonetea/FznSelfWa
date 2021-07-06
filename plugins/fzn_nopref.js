@@ -1,7 +1,7 @@
 (async () => {
 			switch(nopre){
         case 'assalamualaikum':
-          reply('Waalaikumsalam')
+          fzn.sendMessage(from, 'Waalaikumsalam', text, { quoted : msg })
           break
         case 'p':
           reply('Salam Aja om')

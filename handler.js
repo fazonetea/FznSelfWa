@@ -167,11 +167,12 @@ module.exports = fzn = async (fzn, msg) => {
 				Kirim.FakeStatus(from,'*Saya Tidak Lagi Offline!*',fakenya);
 			}
 		}
-		tebakan(fzn, msg, prefix)
+		
 		
 		if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
      	if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 		if(!msg.key.fromMe && selfna) return
+		tebakan(fzn, msg, prefix)
 		fs.readdirSync('./plugins').forEach(plugin => {
             if(path.extname(plugin).toLowerCase() == '.js') {
                 eval(fs.readFileSync('./plugins/' + plugin,  'utf8'));

@@ -27,6 +27,7 @@ const request = require("request");
 const axios = require('axios')
 const FormData = require('form-data')
 const { Readable, Duplex } = require('stream');
+const tebakan = require('./lib/tebak')
 const path = require('path')
 const os = require('os')
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
@@ -166,6 +167,7 @@ module.exports = fzn = async (fzn, msg) => {
 				Kirim.FakeStatus(from,'*Saya Tidak Lagi Offline!*',fakenya);
 			}
 		}
+		tebakan(fzn, msg, prefix)
 		
 		if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
      	if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))

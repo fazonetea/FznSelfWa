@@ -157,40 +157,7 @@ module.exports = fzn = async (fzn, msg) => {
 		}
 		let audy = dabes.data.audio[q]
         	if (typeof audy !== 'object') dabes.data.audio[q] = {}
-		
-		if(!msg.key.fromMe){						
-			if (AFK.isAfk && ((!from.includes('-')) || (from.includes('-') && 
-				(( from !== false && fazone.mention.length !== 0 ) || fazone.reply_message !== false)))) {
-				if (from.includes('-') && (fazone.mention !== false && fazone.mention.length !== 0)) {
-					fazone.mention.map(async (jidna) => {
-						//console.log(jidna)
-						if (fzn.user.jid.split('@')[0] === jidna.split('@')[0]) {
-							//pushnamenya = fzn.contacts[nameditag] != undefined ? fzn.contacts[nameditag].vname || fzn.contacts[nameditag].notify : undefined
-							fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
-							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
-							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
-						}
-					})
-				} else if (from.includes('-') && fazone.reply_message !== false) {
-					if (fazone.reply_message.jid.split('@')[0] === fzn.user.jid.split('@')[0]) {
-						//pushnamenya = fzn.contacts[namedireply] != undefined ? fzn.contacts[namedireply].vname || fzn.contacts[namedireply].notify : undefined
-						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
-							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
-							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
-					}
-				} else if(detstick.split('@')[0] === fzn.user.jid.split('@')[0]) {
-						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
-							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
-							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
-				} else if(!isGroup){
-						//pushnamenya = fzn.contacts[from] != undefined ? fzn.contacts[from].vname || fzn.contacts[from].notify : undefined
-						fzn.sendMessage(from,`*「 AFK MODE 」*\n\nMaaf Kak, Orangnya Sedang Tidak Membuka Whatsapp 🙏` + 
-							(AFK.reason !== false ? '\n' + '➸ *Alasan*: ' + AFK.reason : '') + 
-							(AFK.lastseen !== 0 ? '\n' + '➸ *Sejak*: ' + secondsToHms(Math.round((new Date()).getTime() / 1000) - AFK.lastseen) + ' Yang Lalu' : ''), MessageType.text, {quoted: fazone.data});
-				}
-			}
-		}		
-		
+		eval(fs.readFileSync('./lib/afk.js', 'utf8'))	
 		if (msg.key.fromMe) {
 			if (AFK.isAfk && !fazone.id.startsWith('3EB0')) {
 				AFK.lastseen = 0;

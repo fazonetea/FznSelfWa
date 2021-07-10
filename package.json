@@ -11,6 +11,7 @@
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
     "axios": "^0.21.1",
     "cfonts": "^2.9.3",
+    "crypto": "^1.0.1",
     "cheerio": "^1.0.0-rc.10",
     "fake-useragent": "^1.0.1",
     "fast-http-request": "0.0.6",

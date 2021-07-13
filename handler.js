@@ -30,9 +30,9 @@ const { Readable, Duplex } = require('stream');
 const tebakan = require('./lib/tebak')
 const path = require('path')
 const os = require('os')
-const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+//const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
-ffmpeg.setFfmpegPath(ffmpegPath);
+//ffmpeg.setFfmpegPath(ffmpegPath);
 
 
 // COLOR

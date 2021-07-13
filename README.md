@@ -3,6 +3,7 @@
 > pkg update && pkg upgrade
 > pkg install git -y
 > pkg install nodejs -y
+> pkg install ffmpeg
 > git clone https://github.com/fazonetea/FznSelfWa.git
 > cd FznSelfWa
 > npm i

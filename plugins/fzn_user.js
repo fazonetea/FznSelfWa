@@ -2,12 +2,14 @@
 switch (command) {
 case 'menu':
 case 'help':
-const mode = selfna ? 'SELF': 'PUBLIC'
-var menu = `◪ *INFO*
-❏ Prefix: 「MULTI」
-❏ Nama : ${pushname}
+const mode = selfna ? 'Self-Mode': 'Public-Mode'
+var menu = `◪ *Info Bot*
+❏ Prefix: 「 MULTI-Prefix of ${prefix} 」
+❏ Username : ${pushname}
 ❏ Mode : ${mode}
 ❏ Runtime : ${cts}
+
+*❐ Simple Menu : ${prefix}simplemenu*
 
 *❏ Owner*
 *| ◪ ${prefix}setfake [ query ]*
@@ -120,6 +122,159 @@ var menu = `◪ *INFO*
 *| ◪ ${prefix}ssweb [ link ]*
 `
 Kirim.FakeStatus(from, menu, fakenya)
+ break
+case 'simplemenu':
+const mode = selfna ? 'Self-Mode': 'Public-Mode'
+var simplemenu = `[ SIMPLE MENU ]
+
+◪ *Info Bot*
+❏ Prefix: 「 MULTI-Prefix of ${prefix} 」
+❏ Username : ${pushname}
+❏ Mode : ${mode}
+❏ Runtime : ${cts}
+
+*==================================*
+*| ▷ ${prefix}ownermenu*
+*| ▷ ${prefix}stickermenu*
+*| ▷ ${prefix}downloadermenu*
+*| ▷ ${prefix}groupmenu*
+*| ▷ ${prefix}photomenu*
+*| ▷ ${prefix}textmenu*
+*| ▷ ${prefix}othermenu*
+*==================================*
+`
+Kirim.FakeStatus(from, simplemenu, fakenya)
+ break
+case 'ownermenu':
+var ownermenu = `*❏ Owner*
+*| ◪ ${prefix}setfake [ query ]*
+*| ◪ ${prefix}upswteks [ query ]*
+*| ◪ ${prefix}upswimage [ query ]* 
+*| ◪ ${prefix}upswvideo [ query ]* 
+*| ◪ ${prefix}runtime* 
+*| ◪ ${prefix}ping* 
+*| ◪ ${prefix}afk* 
+*| ◪ ${prefix}self* 
+*| ◪ ${prefix}public* 
+`
+Kirim.FakeStatus(from, ownermenu, fakenya)
+ break
+case 'stickermenu':
+var stickermenu = `*❏ Sticker*
+*| ◪ ${prefix}sticker [ reply ]*
+*| ◪ ${prefix}snobg [ reply ]*
+*| ◪ ${prefix}scircle [ reply ]* 
+*| ◪ ${prefix}sfirewm [ reply ]* 
+*| ◪ ${prefix}trigger [ reply ]* 
+*| ◪ ${prefix}trigger2 [ reply ]* 
+*| ◪ ${prefix}nobg [ reply ]* 
+*| ◪ ${prefix}removebg [ reply ]* 
+*| ◪ ${prefix}wanted [ reply ]* 
+*| ◪ ${prefix}wanted2 [ reply ]* 
+*| ◪ ${prefix}wasted [ reply ]* 
+*| ◪ ${prefix}rain [ reply ]* 
+`
+Kirim.FakeStatus(from, stickermenu, fakenya)
+ break
+case 'downloadermenu':
+var downloadmenu = `*❏ Downloader*
+*| ◪ ${prefix}play [ query ]*
+*| ◪ ${prefix}ig [ link ]*
+*| ◪ ${prefix}fb [ link ]*
+`
+Kirim.FakeStatus(from, downloadmenu, fakenya)
+ break
+case 'groupmenu':
+var groupmenu = `*❏ Group*
+*| ◪ ${prefix}hidetag [ query ]*
+`
+Kirim.FakeStatus(from, groupmenu, fakenya)
+ break
+case 'photomenu':
+var photoeffect = `*❏ Photo Effect*
+*| ◪ ${prefix}circle [ reply foto ]*
+*| ◪ ${prefix}amazingtypo [ reply foto ]*
+*| ◪ ${prefix}3dblock [ reply foto ]*
+*| ◪ ${prefix}flameup [ reply foto ]*
+*| ◪ ${prefix}rosepetals [ reply foto ]*
+*| ◪ ${prefix}lovelyframe [ reply foto ]*
+*| ◪ ${prefix}valentine [ reply foto ]*
+*| ◪ ${prefix}pipframe [ reply foto ]*
+*| ◪ ${prefix}violetframe [ reply foto ]*
+*| ◪ ${prefix}brilliant [ reply foto ]*
+*| ◪ ${prefix}beautiful [ reply foto ]*
+*| ◪ ${prefix}mintframe [ reply foto ]*
+`
+Kirim.FakeStatus(from, photoeffect, fakenya)
+ break
+case 'textmenu':
+var textmaker = `*❏ Text Maker*
+*| ◪ ${prefix}cup [ query ]*
+*| ◪ ${prefix}cup1 [ query ]*
+*| ◪ ${prefix}romance [ query ]*
+*| ◪ ${prefix}smoke [ query ]*
+*| ◪ ${prefix}burnpaper [ query ]*
+*| ◪ ${prefix}lovemessage [ query ]*
+*| ◪ ${prefix}undergrass [ query ]*
+*| ◪ ${prefix}love [ query ]*
+*| ◪ ${prefix}coffe [ query ]*
+*| ◪ ${prefix}woodheart [ query ]*
+*| ◪ ${prefix}woodenboard [ query ]*
+*| ◪ ${prefix}summer3d [ query ]*
+*| ◪ ${prefix}wolfmetal [ query ]*
+*| ◪ ${prefix}nature3d [ query ]*
+*| ◪ ${prefix}underwater [ query ]*
+*| ◪ ${prefix}golderrose [ query ]*
+*| ◪ ${prefix}summernature [ query ]*
+*| ◪ ${prefix}letterleaves [ query ]*
+*| ◪ ${prefix}glowingneon [ query ]*
+*| ◪ ${prefix}fallleaves [ query ]*
+*| ◪ ${prefix}flamming [ query ]*
+*| ◪ ${prefix}harrypotter [ query ]*
+*| ◪ ${prefix}tahta [ query ]*
+*| ◪ ${prefix}carvedwood [ query ]*
+*| ◪ ${prefix}arcade8bit [ query ] [ query ]*
+*| ◪ ${prefix}battlefield4 [ query ] [ query ]*
+*| ◪ ${prefix}pubg [ query ] [ query ]*
+*| ◪ ${prefix}wetglass [ query ]*
+*| ◪ ${prefix}watercolor [ query ]*
+*| ◪ ${prefix}luxurygold [ query ]*
+*| ◪ ${prefix}galaxywallpaper [ query ]*
+*| ◪ ${prefix}lighttext [ query ]*
+*| ◪ ${prefix}beautifulflower [ query ]*
+*| ◪ ${prefix}puppycute [ query ]*
+*| ◪ ${prefix}royaltext [ query ]*
+*| ◪ ${prefix}heartshaped [ query ]*
+*| ◪ ${prefix}brithdaycake [ query ]*
+*| ◪ ${prefix}galaxystyle [ query ]*
+*| ◪ ${prefix}hologram3d [ query ]*
+*| ◪ ${prefix}greenneon [ query ]*
+*| ◪ ${prefix}glossychrome [ query ]*
+*| ◪ ${prefix}greenbush [ query ]*
+*| ◪ ${prefix}metallogo [ query ]*
+*| ◪ ${prefix}noeltext [ query ]*
+*| ◪ ${prefix}glittergold [ query ]*
+*| ◪ ${prefix}textcake [ query ]*
+*| ◪ ${prefix}starsnight [ query ]*
+*| ◪ ${prefix}wooden3d [ query ]*
+*| ◪ ${prefix}textbyname [ query ]*
+*| ◪ ${prefix}writegalacy [ query ]*
+*| ◪ ${prefix}galaxybat [ query ]*
+*| ◪ ${prefix}snow3d [ query ]*
+*| ◪ ${prefix}birthdayday [ query ]*
+*| ◪ ${prefix}goldplaybutton [ query ]*
+*| ◪ ${prefix}silverplaybutton [ query ]*
+*| ◪ ${prefix}freefire [ query ]*
+`
+Kirim.FakeStatus(from, textmaker, fakenya)
+ break
+case 'othermenu':
+var othermenu = `*❏ Other*
+*| ◪ ${prefix}sfile [ query ]*
+*| ◪ ${prefix}sfiledl [ link ]*
+*| ◪ ${prefix}ssweb [ link ]*
+`
+Kirim.FakeStatus(from, othermenu, fakenya)
  break
 			case 'setfake':
 		if (!msg.key.fromMe) return reply(warn.errorne.onSelf)
